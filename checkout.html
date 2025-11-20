@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <title>Checkout | Pão de Ouro</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="main-header">
+        </header>
+
+    <main class="checkout-page-container">
+        <h1>📦 Finalizar Pedido</h1>
+        
+        <div class="checkout-grid">
+            
+            <section class="checkout-forms">
+                
+                <form id="delivery-form" class="form-section">
+                    <h2>1. Endereço de Entrega</h2>
+                    <div class="form-group">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="error-message" id="name-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" required pattern="\d{5}-?\d{3}" maxlength="9">
+                        <div class="error-message" id="cep-error"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Rua e Número</label>
+                        <input type="text" id="address" name="address" required>
+                        <div class="error-message" id="address-error"></div>
+                    </div>
+
+                    </form>
+
+                <form id="payment-form" class="form-section">
+                    <h2>2. Dados de Pagamento</h2>
+                    <div class="form-group">
+                        <label for="card-number">Número do Cartão</label>
+                        <input type="text" id="card-number" name="card-number" required maxlength="19">
+                    </div>
+                    
+                    <div class="form-group group-inline">
+                        <div class="sub-group">
+                            <label for="expiry">Validade (MM/AA)</label>
+                            <input type="text" id="expiry" name="expiry" required pattern="\d{2}/\d{2}" maxlength="5">
+                        </div>
+                        <div class="sub-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" required maxlength="4">
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <aside class="checkout-summary cart-summary">
+                <h2>Seu Pedido</h2>
+                <div id="checkout-item-list">
+                    </div>
+
+                <hr>
+
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="checkout-subtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Taxa de Entrega:</span>
+                    <span id="checkout-delivery">R$ 10,00</span> 
+                </div>
+                <div class="summary-line total-line">
+                    <strong>Total a Pagar:</strong>
+                    <strong id="checkout-total">R$ 10,00</strong>
+                </div>
+
+                <button type="submit" form="delivery-form" class="btn btn-primary btn-place-order" id="place-order-btn">
+                    Confirmar e Pagar
+                </button>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>

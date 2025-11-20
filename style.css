@@ -1,0 +1,450 @@
+/* ========================================================= */
+/* 1. RESET, BASE E VARIÁVEIS GLOBAIS (DESIGN SYSTEM) */
+/* ========================================================= */
+
+/* Reset Básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variáveis (Design System) */
+:root {
+    /* Cores */
+    --color-primary: #4A2311;       /* Marrom Escuro (Texto, Fundo Principal) */
+    --color-secondary: #DAA520;     /* Dourado (Destaques, Preços) */
+    --color-background: #F8F4F0;    /* Creme Claro (Fundo do Site) */
+    --color-white: #FFFFFF;
+    --color-text: #333333;
+    --color-success: #4CAF50;
+
+    /* Tipografia */
+    --font-heading: 'Playfair Display', serif; 
+    --font-body: 'Poppins', sans-serif;        
+    
+    /* Tamanhos de Fonte */
+    --font-size-base: 16px;
+
+    /* Espaçamento (Base 8px) */
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 32px;
+    --spacing-xl: 64px;
+
+    /* Borda e Sombra */
+    --border-radius: 8px;
+    --box-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --box-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Base Body e Tipografia */
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.1;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-secondary);
+}
+
+main {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    min-height: 80vh; /* Para garantir espaço em páginas curtas */
+}
+
+section {
+    margin-bottom: var(--spacing-xl);
+}
+
+/* ========================================================= */
+/* 2. BOTÕES E FORMULÁRIOS */
+/* ========================================================= */
+
+.btn {
+    display: inline-block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Botão Principal (Dourado) */
+.btn-primary {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: #C5931C; /* Dourado Ligeiramente mais Escuro */
+    transform: translateY(-1px);
+}
+
+/* Botão Secundário (Marrom) */
+.btn-secondary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-secondary:hover {
+    background-color: #5B2F17; /* Marrom Ligeiramente mais Claro */
+}
+
+/* Botão de Ícone (Carrinho) */
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    padding: var(--spacing-sm);
+}
+
+/* Badge do Carrinho */
+.badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    line-height: 1;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Estilos de Formulário */
+.form-group {
+    margin-bottom: var(--spacing-md);
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid #CCCCCC;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-secondary);
+    outline: none;
+}
+
+.form-group .error {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 4px;
+    display: block;
+    height: 18px; /* Mantém o espaço para evitar pulo de layout */
+}
+
+
+/* ========================================================= */
+/* 3. HEADER E FOOTER */
+/* ========================================================= */
+
+.main-header {
+    background-color: var(--color-white);
+    box-shadow: var(--box-shadow-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.main-nav .nav-link {
+    margin: 0 var(--spacing-md);
+    padding: 5px 0;
+    font-weight: 500;
+    position: relative;
+}
+
+/* Efeito de Link Ativo */
+.main-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-secondary);
+    border-radius: 2px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.main-footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    font-size: 0.9rem;
+}
+
+/* Ícone de Carrinho (Simulação de um ícone) */
+.icon-cart::before {
+    content: '🛒'; 
+}
+
+/* ========================================================= */
+/* 4. ESTILOS ESPECÍFICOS DA PÁGINA (HOME, MENU) */
+/* ========================================================= */
+
+/* Hero Section (Home) */
+.hero-section {
+    /* ATENÇÃO: Verifique a extensão correta da sua imagem aqui (.jpg, .webp, etc.) */
+    background: url('bake-hero.jpg') no-repeat center center / cover; 
+    color: var(--color-white);
+    height: 500px;
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-lg);
+}
+
+.hero-section h1 {
+    color: var(--color-white);
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Grid de Produtos */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* Card de Produto */
+.product-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-image-container {
+    width: 100%;
+    height: 200px; /* Altura fixa para as imagens */
+    overflow: hidden;
+}
+
+.product-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o container sem distorcer */
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image-container img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: var(--spacing-md);
+    flex-grow: 1; /* Permite que o info preencha o espaço */
+}
+
+.product-description {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: var(--spacing-sm);
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-top: 1px solid #EEEEEE;
+}
+
+.product-price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+/* SEÇÃO DE FILTROS (MENU) */
+.filter-controls {
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+}
+
+/* Botões de Filtro */
+#filter-buttons .btn-secondary {
+    padding: var(--spacing-sm) var(--spacing-md); 
+    margin: var(--spacing-sm) 5px; /* Ajuste a margem entre os botões */
+    border: 1px solid var(--color-primary);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+/* Estado Ativo (Selecionado) do Botão */
+#filter-buttons .btn-secondary.active {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    border-color: var(--color-secondary);
+}
+
+#filter-buttons .btn-secondary:hover:not(.active) {
+    background-color: var(--color-background);
+}
+
+
+/* ========================================================= */
+/* 5. MEDIA QUERIES (RESPONSIVIDADE) */
+/* ========================================================= */
+
+/* Desktop / Tablet (Maior que 768px) */
+@media (min-width: 768px) {
+    .main-nav {
+        display: flex;
+    }
+    .menu-toggle {
+        display: none; 
+    }
+}
+
+/* Grid de Produtos (Desktop/Tablet) */
+@media (min-width: 600px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-xl);
+    }
+}
+
+/* Mobile (Menor que 900px - Carrinho, Checkout e Contato) */
+@media (max-width: 900px) {
+    /* No seu CSS completo (se tiver essas páginas) você pode ajustar o layout delas */
+    /* .cart-content, .checkout-grid, .contact-container { flex-direction: column; } */
+    /* .cart-summary, .checkout-summary { order: -1; } */
+}
+
+/* Mobile (Menor que 600px) */
+@media (max-width: 600px) {
+    .main-header {
+        padding: var(--spacing-md);
+    }
+    
+    .main-nav {
+        display: none; /* Esconde a navegação principal no mobile */
+    }
+    
+    .hero-section {
+        height: 300px;
+        margin-top: 0;
+        border-radius: 0; 
+        padding: 0 var(--spacing-md); 
+    }
+    
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+
+    .product-card {
+        max-width: 100%; /* Garante que o card ocupe a largura total */
+    }
+    
+    .product-grid {
+        gap: var(--spacing-lg);
+    }
+
+    /* Ajuste dos botões de filtro no mobile */
+    #filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    #filter-buttons .btn-secondary {
+        flex-grow: 1; /* Permite que os botões se expandam um pouco */
+        margin: 5px;
+    }
+}

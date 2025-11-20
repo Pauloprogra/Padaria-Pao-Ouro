@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Meu Carrinho | Pão de Ouro</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <header class="main-header">
+        </header>
+
+    <main class="cart-page-container">
+        <h1>🛒 Seu Carrinho de Compras</h1>
+        
+        <div class="cart-content">
+            <section class="cart-items-list" id="cart-list">
+                <p id="empty-cart-message" class="empty-message" style="display: none;">
+                    Seu carrinho está vazio! <a href="menu.html">Confira nosso cardápio.</a>
+                </p>
+            </section>
+
+            <aside class="cart-summary">
+                <h2>Resumo do Pedido</h2>
+                <div class="summary-line">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-line">
+                    <span>Taxa de Entrega:</span>
+                    <span id="cart-delivery">R$ 10,00</span> </div>
+                <hr>
+                <div class="summary-line total-line">
+                    <strong>Total:</strong>
+                    <strong id="cart-total">R$ 10,00</strong>
+                </div>
+                
+                <a href="checkout.html" class="btn btn-primary btn-checkout" id="checkout-btn">
+                    Finalizar Compra
+                </a>
+                <button class="btn btn-secondary btn-clear-cart" id="clear-cart-btn">
+                    Limpar Carrinho
+                </button>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
